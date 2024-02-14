@@ -14,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/pdf/store', [PdfController::class, 'store'])->middleware(['auth:sanctum', 'abilities:pdf']);
+Route::prefix('/pdf')->group(function () {
+    Route::get('/', [PdfController::class, 'index'])->middleware(['auth:sanctum', 'abilities:pdf']);
+    Route::get('/{Pdf}', [PdfController::class, 'show'])->middleware(['auth:sanctum', 'abilities:pdf']);
+    Route::post('/store', [PdfController::class, 'store'])->middleware(['auth:sanctum', 'abilities:pdf']);
+    Route::post('/update', [PdfController::class, 'update'])->middleware(['auth:sanctum', 'abilities:pdf']);
+    Route::post('/delete', [PdfController::class, 'delete'])->middleware(['auth:sanctum', 'abilities:pdf']);
+});
