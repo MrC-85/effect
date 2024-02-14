@@ -8,10 +8,9 @@ The object of this test is to upload a base64 encoded PDF & use AWS Textract API
 - Populate .env file (database & AWS credentials)
 - Run php artisan migrate
 - Run php artisan generate:test-token to generate a bearer token
-- Using the generated token make a POST request to /api/pdf/store with 'file' set as the base64encoded pdf in the body
+- Using the generated token make a POST request to /api/pdf/store with 'file' set as the base64encoded pdf in the body (I used a single page PDF with dummy text)
 - If successful you will recieve the created object in the response
 - If unsuccessful you will recieve an error response with message
-
 
 ## Additions.
 If I was to spend more time on this project the main thing I would chamge would be to move the proccessing logic to a queue (with AWS' async commands) which would keep the API's response time down.<br /> 
